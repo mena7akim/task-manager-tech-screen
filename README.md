@@ -1,6 +1,7 @@
-# Welcome to your Expo app 👋
+## Overview
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple task manager app built with React Native for the Chapter One tech screen.  
+Users can add, complete, and delete tasks.
 
 ## Get started
 
