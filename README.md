@@ -16,35 +16,38 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+Open in Expo Go, Android emulator, iOS simulator, or web via the Expo CLI output.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Testing
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+This project includes basic unit tests using Jest with the `jest-expo` preset and `@testing-library/react-native`.
 
-## Get a fresh project
-
-When you're ready, run:
+Install dev dependencies (already listed in `package.json`), then run:
 
 ```bash
-npm run reset-project
+npm test
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+The tests cover:
 
-## Learn more
+- Adding a task
+- Toggling completion
+- Deleting a task (Alert is mocked in tests)
 
-To learn more about developing your project with Expo, look at the following resources:
+## Project structure
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- app/ - Expo router screens (main screen: `app/index.tsx`)
+- components/ - UI primitives (Button, Checkbox). Small re-exports are used to point to feature components.
+- features/tasks/ - Task-specific presentational components (`TaskList`, `TaskModal`). State is kept in `app/index.tsx` and passed as props.
+- lib/ - small helpers (e.g. `lib/id.ts`)
+- types/ - shared TypeScript types
+- \_\_tests\_\_/ - basic UI tests
 
-## Join the community
+## Third-party libraries
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Expo
+- @expo/vector-icons
+- nativewind (Tailwind-like styling)
+- react-native-safe-area-context
+- @testing-library/react-native (tests)
+- jest + jest-expo
